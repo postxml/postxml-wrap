@@ -1,7 +1,7 @@
 # postxml-wrap
 [![npm version][npm-image]][npm-url]
 
-> [PostXML] plugin enabling configuration maps. Support only tags and classes.
+> [PostXML] plugin wrap with emmet abbreviation. Support only tags and classes.
 
 ## Installation
 `npm i postxml- --save-dev`

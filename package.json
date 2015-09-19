@@ -1,7 +1,7 @@
 {
   "name": "postxml-wrap",
   "version": "0.1.0",
-  "description": "Postxml plugin for wrapping html elements/",
+  "description": "Postxml plugin for wrapping html elements.",
   "main": "index.js",
   "devDependencies": {
     "chai": "^3.2.0",
