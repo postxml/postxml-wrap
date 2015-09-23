@@ -1,19 +1,19 @@
 var fs = require('fs');
-var expandClasses = function (classes) {
-    return '<div class="' + classes.substring(1).split('.').join(' ') + '"></div>';
-};
 
-module.exports = function (opts) {
+module.exports = function (options) {
+    
+    options = options || {};
+    options.attr = options.wrap || 'wrap';
 
     return function ($) {
         
-        $('[px-wrap]').each(function () {
-            var emmet = $(this).attr('px-wrap').split('.'),
+        $('[' + options.attr + ']').each(function () {
+            var emmet = $(this).attr(options.attr).split('.'),
                 classes = '',
                 tag,
                 classSeparator = ' ';
             
-            $(this).removeAttr('px-wrap');
+            $(this).removeAttr(options.attr);
             
             // analize abbr
             if (emmet[0] === '') {

@@ -13,13 +13,19 @@
 
 ### Input
 ```html
-<div px-wrap=".g-section.bg"><a></a></div>
+<div wrap=".g-section.bg"><a></a></div>
 ```
 
 ### Output
 ```html
 <div class="g-section bg"><div><a></a></div></div>
 ```
+
+## Options
+
+### attr
+Type: `String`<br>
+Default: `wrap`
 
 ## Licence
 MIT

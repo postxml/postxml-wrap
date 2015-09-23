@@ -12,7 +12,7 @@ var test = function (input, output, opts) {
 describe('postxml-wrap', function () {
    it('wrap without opt', function () {
       test(
-         '<div px-wrap=".g-section.bg"><a></a></div>',
+         '<div wrap=".g-section.bg"><a></a></div>',
          '<div class="g-section bg"><div><a></a></div></div>'
       );
    });
