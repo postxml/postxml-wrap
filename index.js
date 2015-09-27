@@ -8,32 +8,25 @@ module.exports = function (options) {
     return function ($) {
         
         $('[' + options.attr + ']').each(function () {
-            var emmet = $(this).attr(options.attr).split('.'),
-                classes = '',
-                tag,
-                classSeparator = ' ';
-            
-            $(this).removeAttr(options.attr);
+            var emmet = $(this).attr(options.attr),
+                content = $.html($(this).removeAttr(options.attr)),
+                
+                // wrap function
+                wrap = function (inner, options) {
+                    return '<' + options.tag + ' class="' + options.classes.join(' ') + '">' + inner + '</' + options.tag + '>'
+                };
             
             // analize abbr
-            if (emmet[0] === '') {
-                tag = 'div';
-            } else {
-                tag = emmet[0];
-            }
-            
-            for (var index = 1, lenght = emmet.length; index < lenght; index++) {
-                if (index != 1 ) {
-                    classes += classSeparator;
-                }
-                classes += emmet[index];
-            }
-            
-            // expand abbr to html
-            var element = '<' + tag + ' class="' + classes + '">' + $.html(this) + '</' + tag + '>';
+            emmet = emmet.split('>').reverse();
+            emmet.forEach(function (element, index) {
+                content = wrap(content, {
+                    tag: element[0] != '' ? 'div' : element[0],
+                    classes: element.slice(1).split('.')
+                });
+            });
             
             // replace
-            $(this).replaceWith(element);
+            $(this).replaceWith(content);
         });
     };
 };
