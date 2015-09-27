@@ -11,14 +11,24 @@
 
 ## Example
 
+> ! Plugin doesn't work with whitespaces. They are added just for example
+
 ### Input
 ```html
-<div wrap=".g-section.bg>.g-section__content"><a></a></div>
+<div wrap=".g-section.bg>.g-section__content">
+	<a></a>
+</div>
 ```
 
 ### Output
 ```html
-<div class="g-section bg"><div class="g-section__content"><div><a></a></div></div></div>
+<div class="g-section bg">
+	<div class="g-section__content">
+		<div>
+			<a></a>
+		</div>
+	</div>
+</div>
 ```
 
 ## Options
