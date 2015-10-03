@@ -7,7 +7,7 @@ module.exports = function (options) {
 
     return function ($) {
         
-        $('[' + options.attr + ']').each(function () {
+        $.prototype.wrap = function () {
             var emmet = $(this).attr(options.attr),
                 content = $.html($(this).removeAttr(options.attr)),
                 
@@ -27,6 +27,8 @@ module.exports = function (options) {
             
             // replace
             $(this).replaceWith(content);
-        });
+        }
+        
+        $('[' + options.attr + ']').wrap();
     };
 };
